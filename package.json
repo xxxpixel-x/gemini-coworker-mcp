@@ -1,0 +1,37 @@
+{
+  "name": "gemini-coworker-mcp",
+  "version": "0.1.0",
+  "description": "Let the Gemini desktop app do the work itself, in the background: Claude Code, Codex and other agents hand it tasks, it reads, edits and tests code in your workspace, all on a hidden Windows desktop that never steals focus.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "main": "dist/index.js",
+  "bin": {
+    "gemini-coworker-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "dev:http": "tsx --env-file-if-exists=.env watch src/index.ts --http",
+    "dev:stdio": "tsx --env-file-if-exists=.env src/index.ts --stdio",
+    "build": "tsc",
+    "start": "node --env-file-if-exists=.env dist/index.js",
+    "start:http": "node --env-file-if-exists=.env dist/index.js --http",
+    "start:stdio": "node --env-file-if-exists=.env dist/index.js --stdio",
+    "desktop:bind": "node --env-file-if-exists=.env dist/desktopBind.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.11",
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "hono": "^4.12.7",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
