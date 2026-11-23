@@ -11,6 +11,8 @@ Claude Code、Codex、Antigravity 把任务交给**已登录的 Gemini for Windo
 
 不用 API Key，直接用桌面 App 已登录的账号。
 
+**简体中文** · [English](README.en.md)
+
 ![Platform](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-0078D4)
 ![Node](https://img.shields.io/badge/node-%3E%3D22.13-339933)
 ![MCP](https://img.shields.io/badge/MCP-stdio%20%7C%20Streamable%20HTTP-6E56CF)
@@ -133,7 +135,7 @@ Gemini 每轮只能回复下面四种动作之一：
 ### 1. 安装与构建
 
 ```powershell
-git clone https://github.com/<your-name>/gemini-coworker-mcp.git
+git clone https://github.com/xxxpixel-x/gemini-coworker-mcp.git
 cd gemini-coworker-mcp
 npm install
 npm run build
