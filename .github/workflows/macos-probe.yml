@@ -1,0 +1,21 @@
+name: macOS probe build
+
+on:
+  push:
+    paths: ['native/macos/**', '.github/workflows/macos-probe.yml']
+  pull_request:
+    paths: ['native/macos/**', '.github/workflows/macos-probe.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile
+        run: swiftc -O -o gemini-ax-probe native/macos/GeminiAXProbe.swift
+      - name: Usage runs without Accessibility permission
+        run: ./gemini-ax-probe --help || test $? -eq 2
